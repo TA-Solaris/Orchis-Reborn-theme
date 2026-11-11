@@ -1,3 +1,6 @@
+$variant: 'light';
+$topbar: 'dark'; // The panel keeps its original appearance; menus use the light palette.
+
 @import '../../_sass/variables';
 @import '../../_sass/colors';
 @import '../../_sass/gnome-shell/drawing';
