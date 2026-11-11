@@ -14,8 +14,10 @@ Import the theme's `gtk-4.0/gtk.css` for adaptive styling; importing `gtk-light.
 or an older fixed-colour Orchis stylesheet forces that appearance.
 
 GNOME Shell uses St CSS, a separate engine from GTK4. Select `Orchis-Reborn` for
-light panels/popups or `Orchis-Reborn-Dark` for dark ones (likewise for the other
-layout variants). Shell controls use the native system accent. The User Themes
+light popups or `Orchis-Reborn-Dark` for dark popups (likewise for the other
+layout variants). The panel keeps its original dark appearance in both modes;
+its opacity, spacing and shape depend only on the layout variant.
+Shell controls use the native system accent. The User Themes
 extension loads a fixed stylesheet, so the Settings Default/Dark switch does not
 automatically change a custom Shell theme. This package installs no switching
 services or extensions.

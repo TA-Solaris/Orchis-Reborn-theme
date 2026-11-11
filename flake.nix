@@ -42,7 +42,8 @@
 
             printf '%s' ${pkgs.lib.escapeShellArg (wrapper "light" "light" "src/gtk/4.0/gtk")}      > gtk-light.scss
             printf '%s' ${pkgs.lib.escapeShellArg (wrapper "dark"  "dark"  "src/gtk/4.0/gtk")}      > gtk-dark.scss
-            printf '%s' ${pkgs.lib.escapeShellArg (wrapper "light" "light" "src/gnome-shell/shell-51-0/gnome-shell")} > shell-light.scss
+            # Keep the original dark panel; only Shell popups follow the variant.
+            printf '%s' ${pkgs.lib.escapeShellArg (wrapper "light" "dark" "src/gnome-shell/shell-51-0/gnome-shell")} > shell-light.scss
             printf '%s' ${pkgs.lib.escapeShellArg (wrapper "dark"  "dark"  "src/gnome-shell/shell-51-0/gnome-shell")} > shell-dark.scss
 
             sassc -t expanded gtk-light.scss gtk-4.0-light.css

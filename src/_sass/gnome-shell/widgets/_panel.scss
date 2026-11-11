@@ -6,6 +6,7 @@ $panel_height: if($panel_style == 'compact', $medium-size - 2px, $medium-size + 
 $panel_button_hpadding: ($panel_height - $base-icon-size) / 2;
 
 #panel {
+  color: on($panel-solid);
   font-weight: bold;
   font-feature-settings: "tnum";
   padding: 0 !important;
@@ -280,7 +281,7 @@ $panel_button_hpadding: ($panel_height - $base-icon-size) / 2;
 
   // indicator for active
   .screencast-indicator,
-  .remote-access-indicator { color: $warning; }
+  .remote-access-indicator { color: $yellow-light; }
 }
 
 // App Menu
