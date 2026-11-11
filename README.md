@@ -1,10 +1,6 @@
-# Orchis theme
+# Orchis Reborn theme
 
-Orchis is a [Material Design](https://material.io) theme for GNOME/GTK based desktop environments.
-
-Based on nana-4 -- [materia-theme](https://github.com/nana-4/materia-theme)
-
-![screenshot](images/screenshot.png?raw=true)
+Orchis Reborn, based on [Orchis](https://github.com/vinceliuice/Orchis-theme), is a [Material Design](https://material.io) theme for GNOME/GTK based desktop environments.
 
 ## Requirements
 
@@ -16,12 +12,6 @@ Based on nana-4 -- [materia-theme](https://github.com/nana-4/materia-theme)
   - `gtk2-engine-murrine` on openSUSE
   - `gtk2-engines-murrine` on Debian, Ubuntu, etc.
 - `sassc` — build dependency
-
-## Donate
-
-If you like this project, consider supporting it with a coffee:
-
-<span class="paypal"><a href="https://www.paypal.me/vinceliuice" title="Donate to this project using Paypal"><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal donate button" /></a></span>
 
 ## Installation
 
@@ -85,36 +75,3 @@ OPTIONS:
 ```
 
 > For more information, run: `./install.sh -h`
-
-## Tweaks for Orchis
-
-![tweaks-view](images/tweaks-view.png?raw=true)
-
-### Fix for libadwaita (Gnome-shell >= 42.0)
-
-![libadwaita](images/libadwaita.png?raw=true)
-
-run: `./install.sh -l` (Default light version will installed)
-
-This fix is just a link from selected Ochis gtk-4.0 theme in `$HOME/.theme` to `$HOME/.config/gtk-4.0/gtk.css`
-so it will not support change theme through `Gnome-tweaks`
-if you want install other theme version for libadwaita you can run like:
-
-```sh
-./install.sh -c dark -l #(Link dark version)
-```
-
-```sh
-./install.sh -c dark -t purple -l #(Link dark purple version)
-```
-
-and so on ... 
-
-### Fix for Flatpak
-
-```sh
-sudo flatpak override --filesystem=xdg-config/gtk-3.0 && sudo flatpak override --filesystem=xdg-config/gtk-4.0
-```
-
-If you use flatpak apps, you can run this to fix theme issue.
-
