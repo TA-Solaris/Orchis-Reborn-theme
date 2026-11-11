@@ -42,11 +42,13 @@
 
             printf '%s' ${pkgs.lib.escapeShellArg (wrapper "light" "light" "src/gtk/4.0/gtk")}      > gtk-light.scss
             printf '%s' ${pkgs.lib.escapeShellArg (wrapper "dark"  "dark"  "src/gtk/4.0/gtk")}      > gtk-dark.scss
-            printf '%s' ${pkgs.lib.escapeShellArg (wrapper "dark"  "dark"  "src/gnome-shell/shell-51-0/gnome-shell")} > shell.scss
+            printf '%s' ${pkgs.lib.escapeShellArg (wrapper "light" "light" "src/gnome-shell/shell-51-0/gnome-shell")} > shell-light.scss
+            printf '%s' ${pkgs.lib.escapeShellArg (wrapper "dark"  "dark"  "src/gnome-shell/shell-51-0/gnome-shell")} > shell-dark.scss
 
             sassc -t expanded gtk-light.scss gtk-4.0-light.css
             sassc -t expanded gtk-dark.scss  gtk-4.0-dark.css
-            sassc -t expanded shell.scss     gnome-shell.css
+            sassc -t expanded shell-light.scss gnome-shell-light.css
+            sassc -t expanded shell-dark.scss  gnome-shell-dark.css
 
             runHook postBuild
           '';
@@ -58,19 +60,35 @@
             mkdir -p $dest/{gtk-4.0,gnome-shell}
 
             # GTK 4
-            cp gtk-4.0-light.css $dest/gtk-4.0/gtk.css
+            cp src/gtk/4.0/adaptive.css $dest/gtk-4.0/gtk.css
+            cp gtk-4.0-light.css $dest/gtk-4.0/gtk-light.css
             cp gtk-4.0-dark.css  $dest/gtk-4.0/gtk-dark.css
             cp -r src/gtk/assets   $dest/gtk-4.0/assets
             cp -r src/gtk/scalable $dest/gtk-4.0/assets/scalable
 
             # GNOME Shell
-            cp gnome-shell.css $dest/gnome-shell/gnome-shell.css
-            cp -r src/gnome-shell/assets-Dark   $dest/gnome-shell/assets
+            cp gnome-shell-light.css $dest/gnome-shell/gnome-shell.css
+            cp -r src/gnome-shell/assets $dest/gnome-shell/assets
             cp -r src/gnome-shell/common-assets $dest/gnome-shell/common-assets
             cp -r src/gnome-shell/extensions    $dest/gnome-shell/extensions
             cp src/gnome-shell/pad-osd.css      $dest/gnome-shell/pad-osd.css
             cp src/gnome-shell/activities/activities-default.svg $dest/gnome-shell/assets/activities.svg
             cp src/gnome-shell/theme/*.svg      $dest/gnome-shell/
+
+            # User Themes selects one filename, so expose the dark shell separately.
+            dark=$out/share/themes/${name}-Dark
+            mkdir -p $dark/gnome-shell
+            cp gnome-shell-dark.css $dark/gnome-shell/gnome-shell.css
+            cp -r src/gnome-shell/assets-Dark $dark/gnome-shell/assets
+            cp src/gnome-shell/activities/activities-default.svg $dark/gnome-shell/assets/activities.svg
+            cp src/gnome-shell/theme/*.svg $dark/gnome-shell/
+            ln -s ../../${name}/gnome-shell/common-assets $dark/gnome-shell/common-assets
+            ln -s ../../${name}/gnome-shell/extensions $dark/gnome-shell/extensions
+            ln -s ../../${name}/gnome-shell/pad-osd.css $dark/gnome-shell/pad-osd.css
+            mkdir -p $dark/gtk-4.0
+            ln -s ../../${name}/gtk-4.0/gtk-dark.css $dark/gtk-4.0/gtk.css
+            ln -s gtk.css $dark/gtk-4.0/gtk-dark.css
+            ln -s ../../${name}/gtk-4.0/assets $dark/gtk-4.0/assets
 
             cat > $dest/index.theme <<EOF
             [Desktop Entry]
@@ -86,6 +104,7 @@
             CursorTheme=Adwaita
             ButtonLayout=close,minimize,maximize:
             EOF
+            sed 's/${name}/${name}-Dark/g' $dest/index.theme > $dark/index.theme
 
             runHook postInstall
           '';

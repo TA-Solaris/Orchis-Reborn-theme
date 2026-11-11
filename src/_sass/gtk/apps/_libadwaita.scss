@@ -92,7 +92,7 @@ button {
   &.suggested-action {
     @extend %opaque-button;
 
-    color: on($suggested);
+    color: $primary-text;
 
     &, &:checked {
       background-color: $suggested;
@@ -150,7 +150,7 @@ menubutton {
 
   &.suggested-action {
     background-color: $suggested;
-    color: on($suggested);
+    color: $primary-text;
   }
 
   &.destructive-action {
@@ -297,7 +297,7 @@ splitbutton {
 
   &.suggested-action {
     background-color: $suggested;
-    color: on($suggested);
+    color: $primary-text;
   }
 
   &.destructive-action {

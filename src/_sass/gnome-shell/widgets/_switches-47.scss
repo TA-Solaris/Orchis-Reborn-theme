@@ -3,46 +3,31 @@
 .toggle-switch {
   width: 44px;
   height: 26px;
-  background-size: contain;
-  background-image: url("assets/toggle-off.svg");
-  background-color: transparent;
-  padding: 0;
-  margin: 0;
+  border-radius: $circular-radius;
+  background: $track;
+  color: $text;
+  transition-duration: 100ms;
 
-  &:checked {
-    background-image: url("assets/toggle-on.svg");
-    background-color: transparent;
-    color: transparent;
+  &:hover { background-color: $text-disabled; }
 
-    &:hover {
-      background-color: transparent;
-      color: transparent;
-    }
-
-    .handle {
-      background: none;
-    }
-  }
-
-  @if $submenu_style == 'false' and $variant == 'dark' {
-    .popup-sub-menu &,
-    .quick-toggle-menu & {
-      background-image: url("assets/menu-toggle-off.svg") !important;
-
-      &:checked { background-image: url("assets/toggle-on.svg") !important; }
-    }
-  }
-
-  StIcon {
-    icon-size: 0;
-  }
+  StIcon { icon-size: $base-icon-size; }
 
   .handle {
-    margin: 0;
-    width: 0;
-    height: 0;
-    background: none;
-    box-shadow: none;
-    transition-duration: none;
+    margin: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: $circular-radius;
+    background: white;
+    box-shadow: 0 2px 4px rgba(black, 0.2);
+    transition-duration: 100ms;
+  }
+
+  &:checked {
+    background: -st-accent-color;
+    color: -st-accent-fg-color;
+
+    &:hover { background-color: st-lighten(-st-accent-color, 5%); }
+
+    .handle { background: -st-accent-fg-color; }
   }
 }

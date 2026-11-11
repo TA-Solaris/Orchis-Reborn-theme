@@ -93,7 +93,7 @@
 }
 
 
-@mixin entry($t, $fc: $primary) {
+@mixin entry($t, $fc: -st-accent-color) {
 //
 // entry
 //
@@ -113,7 +113,7 @@
   @if $t == focus {
     color: $text;
     box-shadow: 0 3px 3px rgba(black, 0.20), 0 5px 8px rgba(black, 0.08) !important;
-    border: 2px solid $primary !important;
+    border: 2px solid -st-accent-color !important;
   }
 
   @if $t == hover {
@@ -125,7 +125,7 @@
   }
 }
 
-@mixin search_entry($t, $fc: $primary) {
+@mixin search_entry($t, $fc: -st-accent-color) {
 //
 // search_entry
 //
@@ -180,7 +180,7 @@
   }
 
   @if $t == focus {
-    color: $primary;
+    color: -st-accent-color;
     text-shadow: none;
     icon-shadow: none;
     box-shadow: none !important;
@@ -193,7 +193,7 @@
 
   @if $t == hover {
     color: $tc;
-    background-color: rgba($tc, 0.12);
+    background-color: st-mix($tc, transparent, 12%);
     border-color: transparent;
     box-shadow: none;
     text-shadow: none;
@@ -202,7 +202,7 @@
 
   @if $t == active {
     color: $tc;
-    background-color: rgba($tc, 0.24);
+    background-color: st-mix($tc, transparent, 24%);
     border-color: transparent;
     box-shadow: none;
     text-shadow: none;
@@ -210,8 +210,8 @@
   }
 
   @if $t == checked {
-    color: on($primary);
-    background-color: $primary;
+    color: -st-accent-fg-color;
+    background-color: -st-accent-color;
     border-color: transparent;
     box-shadow: none;
     text-shadow: none;
@@ -263,8 +263,8 @@
   }
 
   @if $t == flat-checked {
-    color: if($tc != on(dark), $text, on($primary));
-    background-color: if($tc != on(dark), $track, $primary);
+    color: if($tc != on(dark), $text, -st-accent-fg-color);
+    background-color: if($tc != on(dark), $track, -st-accent-color);
     border-color: transparent;
     box-shadow: none;
     text-shadow: none;

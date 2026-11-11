@@ -23,8 +23,8 @@
     }
 
     &:selected {
-      background-color: $primary;
-      color: on($primary);
+      background-color: -st-accent-color;
+      color: -st-accent-fg-color;
     }
   }
 
@@ -53,7 +53,7 @@
   color: on(dark, secondary);
 
   &:highlighted {
-    color: on($primary);
+    color: -st-accent-fg-color;
   }
 }
 
@@ -66,5 +66,5 @@
 
 // Window cycler highlight
 .cycler-highlight {
-  border: 5px solid $primary;
+  border: 5px solid -st-accent-color;
 }

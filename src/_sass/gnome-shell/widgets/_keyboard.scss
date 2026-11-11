@@ -55,14 +55,14 @@ $keyboard_active_bg_color: if($variant == 'light', darken($keyboard, 20%), light
   }
 
   &.enter-key {
-    background-color: $primary;
+    background-color: -st-accent-color;
     color: on(dark);
 
-    &:focus, &:hover { color: on(dark); background-color: lighten($primary, 5%); }
-    &:checked, &:active { color: on(dark); background-color: darken($primary, 10%); }
+    &:focus, &:hover { color: on(dark); background-color: st-lighten(-st-accent-color, 5%); }
+    &:checked, &:active { color: on(dark); background-color: st-darken(-st-accent-color, 10%); }
   }
 
-  &.shift-key-uppercase { color: $primary }
+  &.shift-key-uppercase { color: -st-accent-color }
 
   StIcon { icon-size: 1.125em; }
 }
@@ -91,8 +91,8 @@ $keyboard_active_bg_color: if($variant == 'light', darken($keyboard, 20%), light
 
 .emoji-panel {
   .keyboard-key:latched {
-    border-color: lighten($primary, 5%);
-    background-color: $primary;
+    border-color: st-lighten(-st-accent-color, 5%);
+    background-color: -st-accent-color;
   }
 }
 

@@ -23,11 +23,11 @@ text widgets and the like base background color */
 
 /*
 base background color of selections */
-@define-color theme_selected_bg_color #{"" + $primary};
+@define-color theme_selected_bg_color @accent_bg_color;
 
 /*
 text/foreground color of selections */
-@define-color theme_selected_fg_color #{"" + $primary-text};
+@define-color theme_selected_fg_color @accent_fg_color;
 
 /*
 base background color of insensitive widgets */
@@ -59,11 +59,11 @@ text widgets and the like base background color on backdrop windows */
 
 /*
 base background color of selections on backdrop windows */
-@define-color theme_unfocused_selected_bg_color #{"" + $primary};
+@define-color theme_unfocused_selected_bg_color @accent_bg_color;
 
 /*
 text/foreground color of selections on backdrop windows */
-@define-color theme_unfocused_selected_fg_color #{"" + $primary-text};
+@define-color theme_unfocused_selected_fg_color @accent_fg_color;
 
 /*
 insensitive color on backdrop windows */

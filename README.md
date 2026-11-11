@@ -4,8 +4,21 @@ Orchis Reborn, based on [Orchis](https://github.com/vinceliuice/Orchis-theme),
 is a [Material Design](https://material.io) theme for GNOME/GTK based desktop
 environments.
 
-Nix-only build. Four variants, all with light + dark bundled; color-scheme and
-accent handled by GTK / libadwaita.
+Supports GTK 4.20+ / libadwaita and GNOME Shell 51.
+Four layout variants, each with light and dark styles.
+
+GTK4 uses native `prefers-color-scheme` media queries: Default gives light windows
+and white popovers with dark text; Dark gives dark windows and popovers.
+Controls follow the system accent, and Settings retains all nine accent swatches.
+Import the theme's `gtk-4.0/gtk.css` for adaptive styling; importing `gtk-light.css`
+or an older fixed-colour Orchis stylesheet forces that appearance.
+
+GNOME Shell uses St CSS, a separate engine from GTK4. Select `Orchis-Reborn` for
+light panels/popups or `Orchis-Reborn-Dark` for dark ones (likewise for the other
+layout variants). Shell controls use the native system accent. The User Themes
+extension loads a fixed stylesheet, so the Settings Default/Dark switch does not
+automatically change a custom Shell theme. This package installs no switching
+services or extensions.
 
 ## Variants
 

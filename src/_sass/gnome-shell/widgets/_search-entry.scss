@@ -7,7 +7,7 @@ $search_entry_width: 320px;
   padding: $space-size $space-size * 1;
   width: $search_entry_width;
   border-radius: $circular-radius;
-  selection-background-color: $primary;
+  selection-background-color: -st-accent-color;
   selected-color: on(dark) !important;
   @include entry(normal);
 
@@ -41,7 +41,7 @@ $search_entry_width: 320px;
 
     &:focus {
       @include search_entry(focus);
-      selection-background-color: $primary;
+      selection-background-color: -st-accent-color;
       selected-color: on(dark) !important;
     }
 

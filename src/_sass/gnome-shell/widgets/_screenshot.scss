@@ -165,18 +165,18 @@ $screenshot_ui_button_red: $error;
 .screenshot-ui-window-selector-window {
   &:hover {
     .screenshot-ui-window-selector-window-border {
-      border-color: darken($primary, 15%);
+      border-color: st-darken(-st-accent-color, 15%);
     }
   }
   &:checked {
     .screenshot-ui-window-selector-window-border {
-      border-color: $primary;
-      background-color: transparentize($primary, 0.8);
+      border-color: -st-accent-color;
+      background-color: st-transparentize(-st-accent-color, 0.8);
     }
 
     .screenshot-ui-window-selector-check {
       color: on(dark);
-      background-color: $primary;
+      background-color: -st-accent-color;
     }
   }
 }

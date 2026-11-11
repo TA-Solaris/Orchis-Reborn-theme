@@ -60,16 +60,16 @@
 
 .lg-dialog {
   StEntry {
-    selection-background-color: $primary;
+    selection-background-color: -st-accent-color;
     selected-color: on(dark);
     background-color: on(dark, divider);
     color: on(dark);
   }
 
   .shell-link {
-    color: $link;
+    color: -st-accent-color;
 
-    &:hover { color: $link; }
+    &:hover { color: -st-accent-color; }
   }
 
   .actor-link {

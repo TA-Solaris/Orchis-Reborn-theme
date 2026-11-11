@@ -31,7 +31,7 @@
   border-radius: $menuitem-radius;
   &:hover { background-color: $secondary-fill; color: $text; }
   &:active { background-color: $track; color: $text; }
-  &:selected { background-color: $primary; color: on(dark); }
+  &:selected { background-color: -st-accent-color; color: on(dark); }
   &:last-child { margin-right: 0; }
 }
 

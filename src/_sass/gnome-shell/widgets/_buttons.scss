@@ -10,11 +10,11 @@
 }
 
 %default_button {
-  @include button(normal, $c:$primary, $tc:on($primary, secondary));
-  &:focus { @include button(focus, $c:$primary, $tc:on($primary)); }
-  &:hover { @include button(hover, $c:$primary, $tc:on($primary)); }
-  &:insensitive { @include button(insensitive, $c:$primary, $tc:on($primary, secondary-disabled)); }
-  &:active { @include button(active, $c:$primary, $tc:on($primary)); }
+  @include button(normal, $c:-st-accent-color, $tc:st-transparentize(-st-accent-fg-color, 0.3));
+  &:focus { @include button(focus, $c:-st-accent-color, $tc:-st-accent-fg-color); }
+  &:hover { @include button(hover, $c:-st-accent-color, $tc:-st-accent-fg-color); }
+  &:insensitive { @include button(insensitive, $c:-st-accent-color, $tc:st-transparentize(-st-accent-fg-color, 0.7)); }
+  &:active { @include button(active, $c:-st-accent-color, $tc:-st-accent-fg-color); }
 }
 
 .button {

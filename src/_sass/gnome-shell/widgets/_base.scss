@@ -1,15 +1,15 @@
 // Links
 .shell-link {
   border-radius: $material-radius;
-  color: $link;
+  color: -st-accent-color;
   background-color: transparent;
   &:hover {
-    color: $link;
-    background-color: rgba($link, 0.3 / 2);
+    color: -st-accent-color;
+    background-color: st-transparentize(-st-accent-color, 0.85);
   }
   &:active {
-    color: $link;
-    background-color: rgba($link, 0.3);
+    color: -st-accent-color;
+    background-color: st-transparentize(-st-accent-color, 0.7);
   }
 }
 

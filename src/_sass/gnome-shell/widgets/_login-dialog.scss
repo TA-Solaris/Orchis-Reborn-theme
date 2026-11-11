@@ -12,7 +12,7 @@
   background-color: transparent;
 
   StEntry {
-    selection-background-color: $primary;
+    selection-background-color: -st-accent-color;
     selected-color: on(dark) !important;
     @include entry(normal, $fc:on(dark, track));
     &:focus { @include entry(focus, $fc:on(dark)); }
@@ -31,9 +31,9 @@
     &:insensitive { @include button(flat-insensitive, $tc: on(dark)); }
 
     &:default {
-      @include button(normal, $c: $suggested, $tc: on(dark));
-      &:hover,&:focus { @include button(hover, $c: $suggested, $tc: on(dark)); }
-      &:active { @include button(active, $c: $suggested, $tc: on(dark)); }
+      @include button(normal, $c: -st-accent-color, $tc: on(dark));
+      &:hover,&:focus { @include button(hover, $c: -st-accent-color, $tc: on(dark)); }
+      &:active { @include button(active, $c: -st-accent-color, $tc: on(dark)); }
       &:insensitive { @include button(insensitive, $c: on(dark, divider), $tc: on(dark, disabled)); }
     }
   }

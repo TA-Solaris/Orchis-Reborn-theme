@@ -1,7 +1,7 @@
 // Rubberband for select-area screenshots
 .select-area-rubberband {
-  background-color: transparentize($primary,0.7);
-  border: 1px solid $primary;
+  background-color: st-transparentize(-st-accent-color,0.7);
+  border: 1px solid -st-accent-color;
 }
 
 // User icon

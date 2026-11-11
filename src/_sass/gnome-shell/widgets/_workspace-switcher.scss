@@ -30,7 +30,7 @@
 .ws-switcher-active-left,
 .ws-switcher-active-right {
   height: 52px;
-  background-color: $primary;
+  background-color: -st-accent-color;
   border: none;
   border-radius: $material-radius + $space-size / 2;
   color: on(dark);

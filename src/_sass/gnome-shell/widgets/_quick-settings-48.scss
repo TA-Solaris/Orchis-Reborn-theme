@@ -40,17 +40,17 @@ $toggle-height: $space-size * 4 + $margin-size + $base-icon-size;
   }
 
   &:checked {
-    background-color: $primary !important;
-    color: on($primary) !important;
+    background-color: -st-accent-color !important;
+    color: -st-accent-fg-color !important;
 
     &:hover {
-      background-color: mix(on($primary), $primary, 10%) !important;
-      color: on($primary) !important;
+      background-color: st-mix(-st-accent-fg-color, -st-accent-color, 10%) !important;
+      color: -st-accent-fg-color !important;
     }
 
     &:active {
-      background-color: mix(on($primary), $primary, 20%) !important;
-      color: on($primary) !important;
+      background-color: st-mix(-st-accent-fg-color, -st-accent-color, 20%) !important;
+      color: -st-accent-fg-color !important;
     }
   }
 
@@ -134,17 +134,17 @@ $toggle-height: $space-size * 4 + $margin-size + $base-icon-size;
     }
 
     &:checked {
-      background-color: mix(on($primary), $primary, 5%) !important;
-      color: on($primary) !important;
+      background-color: st-mix(-st-accent-fg-color, -st-accent-color, 5%) !important;
+      color: -st-accent-fg-color !important;
 
       &:hover {
-        background-color: mix(on($primary), $primary, 15%) !important;
-        color: on($primary) !important;
+        background-color: st-mix(-st-accent-fg-color, -st-accent-color, 15%) !important;
+        color: -st-accent-fg-color !important;
       }
 
       &:active {
-        background-color: mix(on($primary), $primary, 25%) !important;
-        color: on($primary) !important;
+        background-color: st-mix(-st-accent-fg-color, -st-accent-color, 25%) !important;
+        color: -st-accent-fg-color !important;
       }
     }
 
@@ -304,8 +304,8 @@ $toggle-height: $space-size * 4 + $margin-size + $base-icon-size;
       background-color: rgba(black, 0.08) !important;
 
       &.active {
-        background-color: $primary !important;
-        color: on($primary) !important;
+        background-color: -st-accent-color !important;
+        color: -st-accent-fg-color !important;
       }
     }
 

@@ -50,7 +50,7 @@
   &:active { background-color: $track; }
 
   &:selected {
-    background-color: $primary;
+    background-color: -st-accent-color;
     color: on(dark);
   }
 }

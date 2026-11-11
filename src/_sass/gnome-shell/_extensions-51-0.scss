@@ -28,8 +28,8 @@
   .notification-badge {
     min-width: 16px;
     min-height: 16px;
-    color: on($primary);
-    background-color: $primary;
+    color: -st-accent-fg-color;
+    background-color: -st-accent-color;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
     border-radius: $circular-radius;
     margin: 2px 3px 5px;
@@ -279,7 +279,7 @@
     }
 
     StWidget.focused .app-grid-running-dot {
-      background-color: $primary;
+      background-color: -st-accent-color;
     }
   }
 
@@ -299,7 +299,7 @@
     }
 
     StWidget.focused .app-grid-running-dot {
-      background-color: $primary;
+      background-color: -st-accent-color;
     }
   }
 

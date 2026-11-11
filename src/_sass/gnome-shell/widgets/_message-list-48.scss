@@ -56,7 +56,7 @@
     border-style: solid;
 
     &:focus {
-      border-color: transparentize($primary, 0.4);
+      border-color: st-transparentize(-st-accent-color, 0.4);
     }
   }
 }
@@ -74,17 +74,17 @@
   // close button
   .message-collapse-button {
     @extend .icon-button;
-    color: rgba($primary-text, 0.8);
-    background-color: rgba($primary, 0.8);
+    color: st-transparentize(-st-accent-fg-color, 0.2);
+    background-color: st-transparentize(-st-accent-color, 0.2);
     padding: 4px !important;
     border: 4px transparent solid;
     &:hover {
-      color: $primary-text;
-      background-color: rgba($primary, 0.7);
+      color: -st-accent-fg-color;
+      background-color: st-transparentize(-st-accent-color, 0.3);
     }
     &:active {
-      color: rgba($primary-text, 0.8);
-      background-color: rgba($primary, 0.8);
+      color: st-transparentize(-st-accent-fg-color, 0.2);
+      background-color: st-transparentize(-st-accent-color, 0.2);
     }
   }
 }
@@ -228,7 +228,7 @@
 
 // URLs in messages
 .url-highlighter {
-  link-color: $link;
+  link-color: -st-accent-color;
 }
 
 /* Media Controls */

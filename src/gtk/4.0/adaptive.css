@@ -1,0 +1,8 @@
+/* GTK 4.20+ evaluates this when imported as libadwaita user CSS. */
+@media (prefers-color-scheme: light) {
+  @import url("gtk-light.css");
+}
+
+@media (prefers-color-scheme: dark) {
+  @import url("gtk-dark.css");
+}

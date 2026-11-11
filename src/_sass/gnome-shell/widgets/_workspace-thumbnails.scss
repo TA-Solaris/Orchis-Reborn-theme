@@ -27,8 +27,8 @@
 
 // selected indicator
 .workspace-thumbnail-indicator {
-  border: 3px solid $primary;
+  border: 3px solid -st-accent-color;
   border-radius: 3px;
   padding: 0px;
-  // background-color: transparentize(rgba($primary, 0.2), 0.9);
+  // background-color: st-transparentize(st-transparentize(-st-accent-color, 0.8), 0.9);
 }

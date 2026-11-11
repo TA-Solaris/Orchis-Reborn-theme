@@ -31,8 +31,8 @@ $osd_levelbar_height: 4px;
     &:first-child { margin-bottom: 0px; }
 
     -barlevel-height: $osd_levelbar_height;
-    -barlevel-background-color: rgba($primary, 0.3);
-    -barlevel-active-background-color: $primary;
+    -barlevel-background-color: st-transparentize(-st-accent-color, 0.7);
+    -barlevel-active-background-color: -st-accent-color;
     -barlevel-overdrive-color: $destructive;
     -barlevel-overdrive-separator-width: 3px;
     -barlevel-border-width: 0;

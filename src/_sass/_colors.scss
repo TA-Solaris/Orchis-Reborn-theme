@@ -4,12 +4,11 @@
 @import 'tweaks';
 
 @function gtkalpha($c, $a) {
-  @return unquote("alpha(#{$c}, #{$a})");
+  @return unquote("color-mix(in srgb, #{$c} #{percentage($a)}, transparent)");
 }
 
 @function gtkmix($c1,$c2,$r) {
-  $ratio: 1 -  $r / 100%; // match SCSS mix()
-  @return unquote("mix(#{$c1},#{$c2},#{$ratio})");
+  @return unquote("color-mix(in srgb, #{$c1} #{$r}, #{$c2})");
 }
 
 @function gtkshade($c,$s) {
@@ -105,7 +104,6 @@
 //
 
 $primary:                               theme($theme);
-$primary-fixed:                         theme($theme);
 $drop_target_color:                     $orange-dark;
 $background:                            if($variant == 'light', background(c), background(e));
 $surface:                               if($variant == 'light', background(a), background(h));
@@ -118,7 +116,7 @@ $base-alt:                              if($variant == 'light', background(b), b
   $base-alt:                            if($variant == 'light', background(c), background(f));
 }
 
-$tooltip:                               if($variant == 'dark', rgba(darken(background(e), 3%), 0.9), rgba(darken(background(h), 3%), 0.9));
+$tooltip:                               if($variant == 'dark', rgba(darken(background(e), 3%), 0.9), rgba(background(a), 0.97));
 $osd:                                   background(e);
 $scrim:                                 background(f);
 $scrim-alt:                             background(g);

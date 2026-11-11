@@ -206,22 +206,22 @@
 
 .calendar-today {
   font-weight: bold !important;
-  color: on($primary) !important;
-  background-color: $primary !important;
+  color: -st-accent-fg-color !important;
+  background-color: -st-accent-color !important;
   border: none;
 
   &:hover, &:focus {
-    background-color: lighten($primary, 3%) !important;
-    color: on($primary) !important;
+    background-color: st-lighten(-st-accent-color, 3%) !important;
+    color: -st-accent-fg-color !important;
   }
 
   &:active, &:selected {
-    background-color: $primary !important;
-    color: on($primary) !important;
+    background-color: -st-accent-color !important;
+    color: -st-accent-fg-color !important;
 
     &:hover, &:focus {
-      background-color: lighten($primary, 3%) !important;
-      color: on($primary) !important;
+      background-color: st-lighten(-st-accent-color, 3%) !important;
+      color: -st-accent-fg-color !important;
     }
   }
 }

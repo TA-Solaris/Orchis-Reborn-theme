@@ -61,8 +61,8 @@ $app_folder_size: 720px;
 .notification-badge {
   min-width: 16px;
   min-height: 16px;
-  color: on($primary);
-  background-color: $primary;
+  color: -st-accent-fg-color;
+  background-color: -st-accent-color;
   border-radius: $circular-radius;
   padding: 0.2em 0.4em;
   // font-weight: bold;
@@ -91,7 +91,7 @@ $app_folder_size: 720px;
 StWidget.focused {
   .app-grid-running-dot {
     width: 18px;
-    background-color: $primary;
+    background-color: -st-accent-color;
   }
 }
 
