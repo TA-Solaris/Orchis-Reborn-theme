@@ -3,7 +3,7 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-  outputs = { nixpkgs, ... }:
+  outputs = { self, nixpkgs, ... }:
     let
       systems = [ "x86_64-linux" "aarch64-linux" ];
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f (import nixpkgs { inherit system; }));
@@ -115,6 +115,25 @@
           all = all;
           default = all;
         });
+
+      apps = forAllSystems (pkgs: {
+        build-releases = {
+          type = "app";
+          program = "${pkgs.writeShellApplication {
+            name = "build-releases";
+            runtimeInputs = [ pkgs.coreutils pkgs.gnutar pkgs.gzip ];
+            text = ''
+              themes=${self.packages.${pkgs.stdenv.hostPlatform.system}.all}/share/themes
+              mkdir -p out
+              for theme in "$themes"/*; do
+                name="''${theme##*/}"
+                tar --dereference -czf "out/$name.tar.gz" -C "$themes" "$name"
+              done
+              echo "Built release archives in out/"
+            '';
+          }}/bin/build-releases";
+        };
+      });
 
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {

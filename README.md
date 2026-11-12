@@ -72,3 +72,15 @@ nix build github:TA-Solaris/Orchis-Reborn-theme#Orchis-Reborn
 
 Output lands at `result/share/themes/Orchis-Reborn`.
 
+### Build release archives
+
+From the repository root:
+
+```sh
+nix run .#build-releases
+```
+
+Builds all eight variants and writes one `.tar.gz` per variant directly into
+`out/`, a regular directory. Each archive contains its named theme directory
+with the actual files, ready to extract. Running again replaces matching archives.
+
