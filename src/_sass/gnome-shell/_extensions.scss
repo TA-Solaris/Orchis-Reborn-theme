@@ -565,6 +565,25 @@ $dash_to_panel_menu_radius: 12px;
 // These surfaces use light text even when the underlying Shell theme is light.
 .bms-popup-background-dark,
 .bms-popup-background-transparent {
+  .keyboard-brightness-level .icon-button {
+    color: on(dark);
+
+    &:hover, &:focus { background-color: on(dark, divider); }
+    &:active { background-color: on(dark, track); }
+    &:insensitive { color: on(dark, disabled); }
+
+    &:checked {
+      color: -st-accent-fg-color;
+
+      &:hover, &:focus { background-color: st-lighten(-st-accent-color, 5%); }
+      &:active { background-color: st-darken(-st-accent-color, 5%); }
+      &:insensitive {
+        color: st-transparentize(-st-accent-fg-color, 0.5);
+        background-color: st-transparentize(-st-accent-color, 0.5);
+      }
+    }
+  }
+
   .check-box {
     StIcon { border-color: on(dark, disabled); }
     &:hover StIcon { border-color: on(dark, secondary); }

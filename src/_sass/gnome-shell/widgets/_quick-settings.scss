@@ -333,7 +333,21 @@ $toggle-height: $space-size * 4 + $margin-size + $base-icon-size;
   spacing: $space-size;
 
   .icon-button:checked {
-    @extend %default_button;
+    color: -st-accent-fg-color;
+    background-color: -st-accent-color;
+
+    &:hover, &:focus {
+      background-color: st-lighten(-st-accent-color, 5%);
+    }
+
+    &:active {
+      background-color: st-darken(-st-accent-color, 5%);
+    }
+
+    &:insensitive {
+      color: st-transparentize(-st-accent-fg-color, 0.5);
+      background-color: st-transparentize(-st-accent-color, 0.5);
+    }
   }
 }
 
