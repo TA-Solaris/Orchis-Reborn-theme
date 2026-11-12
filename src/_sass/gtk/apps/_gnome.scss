@@ -184,14 +184,15 @@
               }
 
               > revealer > box {
-                color: $primary;
+                // The symbolic foreground paints the cutout; labels and icons keep the accent.
+                color: $base;
                 background-color: $base;
                 border: none;
                 border-image-width: 16px 9px 16px 46px;
                 border-image-slice: 16 9 16 46;
                 border-image-repeat: stretch;
                 border-image-source: -gtk-recolor(url("assets/scalable/row-selected-symbolic.svg"),
-                  success gtkmix($primary, $base, 8%), warning $base);
+                  success gtkmix($primary, $base, 8%));
               }
 
               label {
