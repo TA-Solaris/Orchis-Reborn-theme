@@ -10,7 +10,6 @@ $default_corner: 12px;
   @return round($em_value) / 1000 * 1em;
 }
 
-$theme-asset-suffix: if($variant == 'dark', '-dark', '-light');
 
 //
 // Sizes

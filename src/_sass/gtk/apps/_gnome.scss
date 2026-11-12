@@ -190,8 +190,8 @@
                 border-image-width: 16px 9px 16px 46px;
                 border-image-slice: 16 9 16 46;
                 border-image-repeat: stretch;
-                border-image-source: -gtk-scaled(url("assets/row-selected#{$theme-asset-suffix}.png"),
-                  url("assets/row-selected#{$theme-asset-suffix}@2.png"));
+                border-image-source: -gtk-recolor(url("assets/scalable/row-selected-symbolic.svg"),
+                  success gtkmix($primary, $base, 8%), warning $base);
               }
 
               label {

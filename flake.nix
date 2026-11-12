@@ -55,13 +55,12 @@
             runHook preInstall
 
             dest=$out/share/themes/${name}
-            mkdir -p $dest/{gtk-4.0,gnome-shell}
+            mkdir -p $dest/{gtk-4.0/assets,gnome-shell}
 
             # GTK 4
             cp src/gtk/adaptive.css $dest/gtk-4.0/gtk.css
             cp gtk-4.0-light.css $dest/gtk-4.0/gtk-light.css
             cp gtk-4.0-dark.css  $dest/gtk-4.0/gtk-dark.css
-            cp -r src/gtk/assets   $dest/gtk-4.0/assets
             cp -r src/gtk/scalable $dest/gtk-4.0/assets/scalable
 
             # GNOME Shell
