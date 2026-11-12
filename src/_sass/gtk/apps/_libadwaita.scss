@@ -504,61 +504,59 @@ preferencesgroup > box {
 
   .cutout-button { background-color: $surface; }
 
-  @if $gnome_version == 'new' {
-    button.accent-button {
-      min-height: 24px;
-      min-width: 24px;
-      padding: $space-size / 2;
-      border-radius: $circular-radius;
-      background: $primary;
-      outline: none;
-      background-clip: content-box;
-      box-shadow: none;
-      border: none;
+  button.accent-button {
+    min-height: 24px;
+    min-width: 24px;
+    padding: $space-size / 2;
+    border-radius: $circular-radius;
+    background: $primary;
+    outline: none;
+    background-clip: content-box;
+    box-shadow: none;
+    border: none;
 
-      &:hover { box-shadow: 0 0 0 3px $divider; }
+    &:hover { box-shadow: 0 0 0 3px $divider; }
 
-      &:checked { box-shadow: 0 0 0 3px $primary; }
+    &:checked { box-shadow: 0 0 0 3px $primary; }
 
-      &.blue, &.teal, &.green, &.yellow, &.orange, &.red, &.pink, &.purple, &.slate {
-        --accent-color: oklab(from var(--accent-bg-color) var(--standalone-color-oklab));
-      }
+    &.blue, &.teal, &.green, &.yellow, &.orange, &.red, &.pink, &.purple, &.slate {
+      --accent-color: oklab(from var(--accent-bg-color) var(--standalone-color-oklab));
+    }
 
-      &.blue {
-        --accent-bg-color: var(--accent-blue);
-      }
+    &.blue {
+      --accent-bg-color: var(--accent-blue);
+    }
 
-      &.teal {
-        --accent-bg-color: var(--accent-teal);
-      }
+    &.teal {
+      --accent-bg-color: var(--accent-teal);
+    }
 
-      &.green {
-        --accent-bg-color: var(--accent-green);
-      }
+    &.green {
+      --accent-bg-color: var(--accent-green);
+    }
 
-      &.yellow {
-        --accent-bg-color: var(--accent-yellow);
-      }
+    &.yellow {
+      --accent-bg-color: var(--accent-yellow);
+    }
 
-      &.orange {
-        --accent-bg-color: var(--accent-orange);
-      }
+    &.orange {
+      --accent-bg-color: var(--accent-orange);
+    }
 
-      &.red {
-        --accent-bg-color: var(--accent-red);
-      }
+    &.red {
+      --accent-bg-color: var(--accent-red);
+    }
 
-      &.pink {
-        --accent-bg-color: var(--accent-pink);
-      }
+    &.pink {
+      --accent-bg-color: var(--accent-pink);
+    }
 
-      &.purple {
-        --accent-bg-color: var(--accent-purple);
-      }
+    &.purple {
+      --accent-bg-color: var(--accent-purple);
+    }
 
-      &.slate {
-        --accent-bg-color: var(--accent-slate);
-      }
+    &.slate {
+      --accent-bg-color: var(--accent-slate);
     }
   }
 }
@@ -864,8 +862,8 @@ navigation-view navigation-view-page .medium stack > button { // Nautilus proper
 // Sidebar
 .unfolded stacksidebar.sidebar { border: none; }
 
-$sidebar: if($variant == 'light' and $topbar == 'dark', $titlebar, $base-alt);
-$sidebar-backdrop: if($variant == 'light' and $topbar == 'dark', $titlebar-backdrop, $background);
+$sidebar: $base-alt;
+$sidebar-backdrop: $background;
 
 .sidebar-pane,
 .content-pane .sidebar-pane,
@@ -939,133 +937,6 @@ $sidebar-backdrop: if($variant == 'light' and $topbar == 'dark', $titlebar-backd
     box-shadow: none;
   }
 
-  @if $variant == 'light' and $topbar == 'dark' {
-    entry { @extend %titlebar-entry; }
-
-    button:not(.suggested-action):not(.destructive-action) {
-      @extend %titlebar-button;
-    }
-
-    separator {
-      background-color: $titlebar-divider;
-    }
-  
-    .dim-label { color: $titlebar-text-disabled; }
-
-    .navigation-sidebar {
-      color: $titlebar-text-secondary;
-    
-      > row {
-        color: $titlebar-text-secondary;
-    
-        &:hover, &:active,
-        &:focus-visible:focus-within {
-          color: $titlebar-text;
-        }
-
-        &:selected {
-          color: $primary;
-        }
-    
-        &:disabled { color: $titlebar-text-secondary-disabled; }
-      }
-    }
-
-    list.content,
-    list.boxed-list {
-      background-color: $titlebar-fill;
-      color: $titlebar-text;
-      border-color: $titlebar-divider;
-
-      > row {
-        // Regular rows and expander header rows background
-        &, &.expander row.header {
-          color: $titlebar-text-secondary;
-          border-color: $titlebar-divider;
-        }
-
-        &:hover, &:active,
-        &:focus-visible:focus-within {
-          color: $titlebar-text;
-        }
-      }
-    }
-
-    check, radio {
-      color: $titlebar-text-secondary;
-
-      &:hover, &:active { color: $titlebar-text; }
-
-      &:disabled { color: $titlebar-text-secondary-disabled; }
-
-      &:checked, &:indeterminate { color: $check_radio_primary; }
-
-      &:checked:disabled, &:indeterminate:disabled { color: $titlebar-text-secondary-disabled; }
-    }
-
-    popover {
-      color: $text;
-
-      > contents {
-        color: $text;
-
-        separator {
-          background-color: $divider;
-        }
-
-        .dim-label { color: $text-disabled; }
-
-        entry {
-          @extend %titlebar-entry-reset;
-        }
-
-        button:not(.suggested-action):not(.destructive-action) {
-          @extend %titlebar-button-reset;
-
-          &:hover {
-            outline: none;
-          }
-        }
-      }
-    }
-  
-    scrollbar {
-      background-color: transparent;
-      border: none;
-  
-      > range > trough {
-        > slider {
-          background-color: $titlebar-text-secondary-disabled;
-    
-          &:hover { background-color: $titlebar-text-disabled; }
-      
-          &:active { background-color: $titlebar-text-secondary; }
-      
-          &:disabled { background-color: $titlebar-text-secondary-disabled; }
-        }
-      }
-  
-      &.overlay-indicator {
-        &:not(.dragging):not(.hovering) {
-          > range > trough {
-            > slider {
-              border: none;
-            }
-          }
-  
-          button {
-            border: none;
-            background-color: $titlebar-text-disabled;
-  
-            &:disabled { background-color: $titlebar-text-secondary-disabled; }
-          }
-        }
-  
-        &.dragging,
-        &.hovering { background-color: transparent; }
-      }
-    }
-  }
 }
 
 .content-pane {
@@ -1085,7 +956,7 @@ $sidebar-backdrop: if($variant == 'light' and $topbar == 'dark', $titlebar-backd
     .subtitle,
     .dim-label {
       color: $text-secondary;
-  
+
       &:backdrop { color: $text-disabled; }
     }
 
@@ -1140,7 +1011,6 @@ $sidebar-backdrop: if($variant == 'light' and $topbar == 'dark', $titlebar-backd
     }
   }
 }
-
 
 //
 // AdwToolbarView
@@ -1228,23 +1098,15 @@ toolbarview {
   .top-bar {
     box-shadow: none;
     background-color: $titlebar;
-  
+
     &:backdrop {
       background-color: $titlebar-backdrop;
     }
-  
+
     .info &,
     .about & {
       &, &:backdrop {
         background-color: transparent;
-      }
-    }
-
-    @if $variant == 'light' and $topbar == 'dark' {
-      searchbar > revealer > box {
-        color: $titlebar-text;
-
-        entry { @extend %titlebar-entry; }
       }
     }
 

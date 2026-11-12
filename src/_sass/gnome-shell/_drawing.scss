@@ -6,9 +6,6 @@
 }
 
 // provide icon size in em, with px fallback
-@function em($size: 16px) {
-  @return ($size / $root-font-size) + em;
-}
 
 // provide font size in rem, with px fallback
 @mixin fontsize($size: 24, $base: 16) {
@@ -92,7 +89,6 @@
   }
 }
 
-
 @mixin entry($t, $fc: -st-accent-color) {
 //
 // entry
@@ -104,7 +100,7 @@
   @if $t == normal {
     caret-color: $text-secondary;
     color: $text-secondary;
-    background-color: if($variant == 'light', $base, on(dark, divider));
+    background-color: $base;
     margin: 2px 6px 6px;
     border: 2px solid transparent !important;
     box-shadow: 0 3px 3px rgba(black, 0.24), 0 5px 8px rgba(black, 0.05) !important;

@@ -1,8 +1,4 @@
-//This is the RIGHT PLACE to edit the stylesheet
-
-//let's start by telling people not to edit the generated CSS:
-$cakeisalie: "This stylesheet is generated, DO NOT EDIT";
-/* #{$cakeisalie} */
+/* Generated from Sass; edit the source stylesheets. */
 
 stage {
   @include font(body-1);
@@ -14,7 +10,7 @@ stage {
   color: on(dark, disabled);
 }
 
-$bubble_button_radius: if($corner_style == 'circular', $circular-radius, $material-radius);
+$bubble_button_radius: $circular-radius;
 
 %bubble_button {
   border: none;
@@ -77,16 +73,6 @@ $bubble_button_radius: if($corner_style == 'circular', $circular-radius, $materi
 
 /* General Typography */
 
-%large_title {
-  font-weight: 300;
-  @include fontsize(24);
-}
-
-%title_1 {
-  font-weight: 800;
-  @include fontsize(20);
-}
-
 %title_2 {
   font-weight: 800;
   @include fontsize(15);
@@ -116,11 +102,3 @@ $bubble_button_radius: if($corner_style == 'circular', $circular-radius, $materi
   font-weight: 400;
   @include fontsize(9);
 }
-
-%smaller {
-  font-weight: 400;
-  @include fontsize(8);
-}
-
-%monospace {font-family: monospace;}
-%numeric { font-feature-settings: "tnum";}

@@ -26,7 +26,7 @@ $panel_button_hpadding: ($panel_height - $base-icon-size) / 2;
     border-radius: 0;
   } @else {
     margin: $space-size / 2;
-    border-radius: if($corner_style == 'circular', $circular-radius, $material-radius + $space-size / 2);
+    border-radius: $circular-radius;
   }
 
   // transparent panel on lock & login screens
@@ -48,30 +48,6 @@ $panel_button_hpadding: ($panel_height - $base-icon-size) / 2;
     -panel-corner-border-color: transparent;
     -panel-corner-opacity: 1;
     transition-duration: $panel_transition_duration;
-  }
-
-  %icon_activities {
-    background-image: url("assets/activities.svg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 24px 24px;
-    width: 24px;
-    height: 24px;
-    color: transparent !important;
-    background-color: transparent !important;
-    font-size: 0;
-    -natural-hpadding: $space-size / 2 !important;
-    -minimum-hpadding: $space-size / 2 !important;
-
-    > * {
-      width: $panel_height - $space-size;
-      // background-color: on($panel-solid, divider) !important;
-      // border-radius: $circular-radius;
-    }
-
-    .workspace-dot {
-      background-color: transparent;
-    }
   }
 
   %normal_activities {
@@ -97,7 +73,7 @@ $panel_button_hpadding: ($panel_height - $base-icon-size) / 2;
     -minimum-hpadding: $panel_button_hpadding;
     transition-duration: 150ms;
     border: $space-size / 2 solid transparent;
-    border-radius: if($corner_style == 'circular', $circular-radius, $material-radius + $space-size / 2);
+    border-radius: $circular-radius;
     margin: 0;
 
     &.clock-display {
@@ -111,7 +87,7 @@ $panel_button_hpadding: ($panel_height - $base-icon-size) / 2;
       }
 
       .clock {
-        border-radius: if($corner_style == 'circular', $circular-radius, $material-radius + $space-size / 2);
+        border-radius: $circular-radius;
         padding: 0 $space-size * 2 !important;
       }
     }
@@ -201,11 +177,7 @@ $panel_button_hpadding: ($panel_height - $base-icon-size) / 2;
     // }
 
     &#panelActivities {
-      @if $activities == 'icon' {
-        @extend %icon_activities;
-      } @else {
-        @extend %normal_activities;
-      }
+      @extend %normal_activities;
     }
   }
 
@@ -229,7 +201,7 @@ $panel_button_hpadding: ($panel_height - $base-icon-size) / 2;
   Gjs_arcmenu_arcmenu_com_menuButton_Arc_Menu_MenuButton.panel-button,
   Gjs_arcmenu_arcmenu_com_menuButton_ArcMenu_MenuButton.panel-button {
     .arc-menu-icon {
-      border-radius: if($corner_style == 'circular', $circular-radius, $material-radius);
+      border-radius: $circular-radius;
       width: $panel_height - $space-size + 1px;
       margin: $space-size / 2 0;
 
@@ -247,7 +219,7 @@ $panel_button_hpadding: ($panel_height - $base-icon-size) / 2;
 
   Gjs_arcmenu_arcmenu_com_menuButton_ArcMenuMenuButton.panel-button {
     .arcmenu-menu-button {
-      border-radius: if($corner_style == 'circular', $circular-radius, $material-radius);
+      border-radius: $circular-radius;
       // width: $panel_height - $space-size + 1px;
       margin: $space-size / 2 0;
       padding: 0 ($panel_height - 16px - $space-size) / 2;

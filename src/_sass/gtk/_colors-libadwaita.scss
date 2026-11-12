@@ -1,6 +1,6 @@
 $blue_1: #99c1f1;
 $blue_2: #62a0ea;
-$blue_3: theme($color: 'default');
+$blue_3: theme();
 $blue_4: #1c71d8;
 $blue_5: #1a5fb4;
 $green_1: #8ff0a4;
@@ -152,10 +152,6 @@ $dark_5: #000000;
 // define variables for them in _colors.scss
 
 // The main accent color and the matching text value
-@if $gnome_version == 'old' or $accent_type == 'fixed' {
-  @define-color accent_bg_color #{$primary};
-  @define-color accent_fg_color #{on($primary)};
-}
 
 @define-color accent_color @accent_bg_color;
 
@@ -209,35 +205,33 @@ $dark_5: #000000;
 @define-color shade_color #{$border};
 @define-color scrollbar_outline_color #{$border};
 
-@if $gnome_version == 'new' and $accent_type != "fixed" {
-  :root {
-    --accent-blue: #3584e4;
-    --accent-teal: #2190a4;
-    --accent-green: #3a944a;
-    --accent-yellow: #c88800;
-    --accent-orange: #ed5b00;
-    --accent-red: #e62d42;
-    --accent-pink: #d56199;
-    --accent-purple: #9141ac;
-    --accent-slate: #6f8396;
+:root {
+  --accent-blue: #3584e4;
+  --accent-teal: #2190a4;
+  --accent-green: #3a944a;
+  --accent-yellow: #c88800;
+  --accent-orange: #ed5b00;
+  --accent-red: #e62d42;
+  --accent-pink: #d56199;
+  --accent-purple: #9141ac;
+  --accent-slate: #6f8396;
 
-    --accent-color: oklab(from var(--accent-bg-color) var(--standalone-color-oklab));
-    --standalone-color-oklab: #{if($variant == "light", "min(l, 0.5) a b", "max(l, 0.85) a b")};
-    --accent-bg-color: @accent_bg_color;
-    --accent-fg-color: @accent_fg_color;
-  }
-
-  $primary:                               var(--accent-bg-color);
-  $link:                                  var(--accent-color);
-  $suggested:                             var(--accent-bg-color);
-  $check_radio_primary:                   var(--accent-bg-color);
-  $primary-text:                          var(--accent-fg-color);
-  $primary-text-secondary:                on(dark, secondary);
-  $primary-text-disabled:                 on(dark, disabled);
-  $primary-text-secondary-disabled:       on(dark, secondary-disabled);
-  $primary-track:                         on(dark, track);
-  $primary-track-disabled:                on(dark, track-disabled);
-  $primary-divider:                       on(dark, divider);
-  $primary-secondary-fill:                on(dark, secondary-fill);
-  $primary-fill:                          on(dark, fill);
+  --accent-color: oklab(from var(--accent-bg-color) var(--standalone-color-oklab));
+  --standalone-color-oklab: #{if($variant == "light", "min(l, 0.5) a b", "max(l, 0.85) a b")};
+  --accent-bg-color: @accent_bg_color;
+  --accent-fg-color: @accent_fg_color;
 }
+
+$primary:                               var(--accent-bg-color);
+$link:                                  var(--accent-color);
+$suggested:                             var(--accent-bg-color);
+$check_radio_primary:                   var(--accent-bg-color);
+$primary-text:                          var(--accent-fg-color);
+$primary-text-secondary:                on(dark, secondary);
+$primary-text-disabled:                 on(dark, disabled);
+$primary-text-secondary-disabled:       on(dark, secondary-disabled);
+$primary-track:                         on(dark, track);
+$primary-track-disabled:                on(dark, track-disabled);
+$primary-divider:                       on(dark, divider);
+$primary-secondary-fill:                on(dark, secondary-fill);
+$primary-fill:                          on(dark, fill);

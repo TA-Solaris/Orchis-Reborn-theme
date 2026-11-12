@@ -44,18 +44,3 @@ StScrollBar {
     }
   }
 }
-
-%scrollbar_on_light {
-  StScrollBar {
-    StBin#trough {
-      background-color: rgba(black, 0.15);
-    }
-
-    StButton#vhandle, StButton#hhandle {
-      background-color: rgba(black, 0.35);
-
-      &:hover { background-color: rgba(black, 0.45); }
-      &:active { background-color: rgba(black, 0.65); }
-    }
-  }
-}

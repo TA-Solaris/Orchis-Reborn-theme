@@ -3,7 +3,7 @@
 StEntry {
   min-height: $medium-size;
   padding: 0 8px;
-  border-radius: if($corner_style == 'circular', $circular-radius, $material-radius);
+  border-radius: $circular-radius;
   border-width: 0;
   selection-background-color: st-transparentize(-st-accent-color, 0.65) !important;
   selected-color: -st-accent-color !important;
