@@ -214,7 +214,7 @@
     > scrolledwindow {
       margin: 0 0 $space-size * 2 $space-size * 2;
       border-radius: $window-radius - $space-size;
-      background-color: if($topbar =='dark' and $variant =='light', transparent, rgba(theme($theme), 0.08));
+      background-color: if($topbar =='dark' and $variant =='light', transparent, gtkalpha($primary, 0.08));
 
       > overshoot, > undershoot {
         &.top {
@@ -1782,6 +1782,19 @@ panelstatusbar {
 }
 
 // Setting window
+background-preview .window {
+  // Each preview supplies its own palette, independent of the current appearance.
+  background-color: var(--window-bg-color);
+
+  .sidebar {
+    background-color: var(--sidebar-backdrop-color);
+  }
+
+  &.front .sidebar {
+    background-color: var(--sidebar-bg-color);
+  }
+}
+
 .style-variant {
   padding: 0 $space-size * 2;
 
