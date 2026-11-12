@@ -1,6 +1,6 @@
 # Orchis Reborn theme
 
-Orchis Reborn, based on [Orchis](https://github.com/vinceliuice/Orchis-theme),
+Orchis Reborn, based on [Orchis by vinceliuice](https://github.com/vinceliuice/Orchis-theme),
 is a [Material Design](https://material.io) theme for GNOME/GTK based desktop
 environments.
 
