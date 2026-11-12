@@ -16,7 +16,6 @@ $mdborder_color: if($variant == 'light', rgba(black, 0.15), rgba(black, 0.75));
     margin: $margin-size * 4 40px $margin-size * 8;
     spacing: 32px;
     max-width: 28em;
-    background-color: $base;
   }
 
   .modal-dialog-button-box {
@@ -127,29 +126,29 @@ $mdborder_color: if($variant == 'light', rgba(black, 0.15), rgba(black, 0.75));
     }
   }
 
-  .modal-dialog-button:last-child {
+  // Keep the confirmation accent when extensions restyle ordinary dialog buttons.
+  &.modal-dialog .modal-dialog-button-box .modal-dialog-button:last-child {
     color: -st-accent-fg-color !important;
-    background-color: -st-accent-color;
+    background-color: -st-accent-color !important;
 
-    &:hover {
+    &:hover, &:focus {
       color: -st-accent-fg-color !important;
-      background-color: st-lighten(-st-accent-color, 9%);
+      background-color: st-lighten(-st-accent-color, 9%) !important;
     }
 
     &:active {
       color: -st-accent-fg-color !important;
-      background-color: st-darken(-st-accent-color, 5%);
+      background-color: st-darken(-st-accent-color, 5%) !important;
     }
 
     &:insensitive {
       color: st-transparentize(-st-accent-color, 0.5) !important;
-      background-color: st-transparentize(-st-accent-color, 0.85);
+      background-color: st-transparentize(-st-accent-color, 0.85) !important;
     }
   }
 
   .modal-dialog-content-box {
     margin-bottom: 24px;
-    background-color: $base;
   }
 }
 

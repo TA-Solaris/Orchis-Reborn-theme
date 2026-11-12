@@ -599,6 +599,36 @@ $dash_to_panel_menu_radius: 12px;
 // Blur my shell
 //
 
+// These surfaces use light text even when the underlying Shell theme is light.
+.bms-popup-background-dark,
+.bms-popup-background-transparent {
+  .device-subtitle {
+    color: on(dark, secondary);
+  }
+
+  .events-button .events-list {
+    color: on(dark);
+  }
+
+  .popup-menu .popup-menu-item {
+    &, &:hover, &:focus, &:active, &:checked, &.selected {
+      color: on(dark) !important;
+    }
+
+    &:insensitive {
+      color: on(dark, disabled) !important;
+    }
+  }
+
+  .button.vitals-button-action {
+    color: on(dark);
+
+    &:insensitive {
+      color: on(dark, disabled);
+    }
+  }
+}
+
 .overview-components-transparent .search-entry,
 .overview-components-light .search-entry,
 .overview-components-dark .search-entry {
