@@ -1,0 +1,64 @@
+// Shell 51 popup surfaces share geometry and use the selected Shell palette.
+.popup-menu .popup-menu-content,
+.quick-settings,
+.quick-toggle-menu,
+.notification-banner {
+  color: $text;
+  background-color: if($opacity == 'solid', $base, rgba($base, 0.97)) !important;
+}
+
+.modal-dialog {
+  color: $text;
+  background-color: $base;
+
+  StEntry {
+    color: $text;
+    background-color: $base-alt;
+    caret-color: $text;
+
+    &:insensitive { color: $text-disabled; }
+  }
+
+  .prompt-dialog-info-label,
+  .prompt-dialog-null-label {
+    color: $text-secondary;
+    background-color: $fill;
+  }
+}
+
+// Shell 51 marks the confirm action with :default, not a .default class.
+.modal-dialog:not(.end-session-dialog) .modal-dialog-button:default {
+  color: -st-accent-fg-color !important;
+  background-color: -st-accent-color !important;
+
+  &:hover, &:focus {
+    background-color: st-lighten(-st-accent-color, 9%) !important;
+  }
+
+  &:active {
+    background-color: st-darken(-st-accent-color, 5%) !important;
+  }
+
+  &:insensitive {
+    color: st-transparentize(-st-accent-fg-color, 0.5) !important;
+    background-color: st-transparentize(-st-accent-color, 0.5) !important;
+  }
+}
+
+@if not $shell_light {
+  // Shell 51 supplies symbolic arrows; the old background images are black.
+  .calendar-change-month-back,
+  .calendar-change-month-forward {
+    &, &:rtl { background-image: none; }
+  }
+
+  .calendar-day-with-events {
+    background-image: url("assets/calendar-events-dark.svg");
+  }
+
+  .calendar-week-number { background-color: $fill; }
+
+  .quick-toggle-menu .header .icon:not(.active) {
+    background-color: $secondary-fill !important;
+  }
+}

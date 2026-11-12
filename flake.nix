@@ -8,17 +8,22 @@
       systems = [ "x86_64-linux" "aarch64-linux" ];
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f (import nixpkgs { inherit system; }));
 
-      # Two orthogonal options:
+      # Shell popup colour is independent of opacity and panel layout:
       #   opacity:    "default" (transparent) | "solid"
       #   panelStyle: "float"   (floating)    | "compact" (attached)
-      variants = {
+      #   shellLight: opt-in light popups and modals; GTK stays adaptive
+      baseVariants = {
         "Orchis-Reborn"               = { opacity = "default"; panelStyle = "float";   };
         "Orchis-Reborn-Solid"         = { opacity = "solid";   panelStyle = "float";   };
         "Orchis-Reborn-Compact"       = { opacity = "default"; panelStyle = "compact"; };
         "Orchis-Reborn-Solid-Compact" = { opacity = "solid";   panelStyle = "compact"; };
       };
 
-      mkTheme = pkgs: name: { opacity, panelStyle }:
+      variants = baseVariants // nixpkgs.lib.mapAttrs' (name: cfg:
+        nixpkgs.lib.nameValuePair "${name}-Light" (cfg // { shellLight = true; })
+      ) baseVariants;
+
+      mkTheme = pkgs: name: { opacity, panelStyle, shellLight ? false }:
         let
           # Written via printf '%s' so shell doesn't interpret $-prefixed sass vars
           wrapper = variant: topbar: entry: ''
@@ -42,7 +47,10 @@
 
             printf '%s' ${pkgs.lib.escapeShellArg (wrapper "light" "light" "src/gtk/gtk")}      > gtk-light.scss
             printf '%s' ${pkgs.lib.escapeShellArg (wrapper "dark"  "dark"  "src/gtk/gtk")}      > gtk-dark.scss
-            printf '%s' ${pkgs.lib.escapeShellArg (wrapper "light" "dark" "src/gnome-shell/gnome-shell")} > shell.scss
+            printf '%s' ${pkgs.lib.escapeShellArg (
+              pkgs.lib.optionalString shellLight "$shell_light: true;\n"
+              + wrapper (if shellLight then "light" else "dark") "dark" "src/gnome-shell/gnome-shell"
+            )} > shell.scss
 
             sassc -t expanded gtk-light.scss gtk-4.0-light.css
             sassc -t expanded gtk-dark.scss  gtk-4.0-dark.css

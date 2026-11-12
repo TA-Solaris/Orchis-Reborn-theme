@@ -1,5 +1,6 @@
-$variant: 'light';
-$topbar: 'dark'; // The panel keeps its original appearance; menus use the light palette.
+$shell_light: false !default;
+$variant: if($shell_light, 'light', 'dark');
+$topbar: 'dark'; // The panel keeps the same appearance in both popup variants.
 
 @import '../_sass/variables';
 @import '../_sass/colors';
@@ -7,3 +8,4 @@ $topbar: 'dark'; // The panel keeps its original appearance; menus use the light
 @import '../_sass/gnome-shell/common';
 @import '../_sass/gnome-shell/widgets';
 @import '../_sass/gnome-shell/extensions';
+@import '../_sass/gnome-shell/surfaces';
